@@ -2,7 +2,7 @@ require 'google_places/review'
 
 module GooglePlaces
   class Spot
-    attr_accessor :lat, :lng, :name, :icon, :reference, :vicinity, :types, :id, :formatted_phone_number, :international_phone_number, :formatted_address, :address_components, :street_number, :street, :city, :region, :postal_code, :country, :rating, :url, :cid, :website, :reviews
+    attr_accessor :lat, :lng, :name, :icon, :reference, :vicinity, :types, :id, :formatted_phone_number, :international_phone_number, :formatted_address, :address_components, :street_number, :street, :city, :region, :postal_code, :country, :rating, :url, :cid, :website, :reviews, :opening_hours
 
     # Search for Spots at the provided location
     #
@@ -263,6 +263,7 @@ module GooglePlaces
       @cid                        = json_result_object['url'].to_i
       @website                    = json_result_object['website']
       @reviews                    = reviews_component(json_result_object['reviews'])
+      @opening_hours              = json_result_object['opening_hours']
     end
 
     def address_component(address_component_type, address_component_length)
