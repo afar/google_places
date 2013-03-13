@@ -28,4 +28,7 @@ module GooglePlaces
 
   class UnknownError < HTTParty::ResponseError
   end
+
+  class NotFound < HTTParty::ResponseError
+  end
 end
